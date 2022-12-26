@@ -20,12 +20,13 @@ n="a=input();b=input();print('nikhil'+a+b);";
   constructor(private _freeApiService : freeApiService)/*freeApiService is being injected using _freeApiService as instance of it*/{}
   objpost?:Getwithparameters;
   option="python3";
-  Inputs="1 5";
+  Inputs="1\n5";
   run(){
-    
-    this.Inputs=this.Inputs.replace(" ", "\\n")
+    //this.Inputs=this.Inputs.replace(" ", "\\n"); this code only replace on instance as we want to replace all posible instance we will use RE
+    this.Inputs=this.Inputs.replace(/ /, "\\n");
+    this.Inputs=this.Inputs.replace(/\n/, "\\n");
     this.opos="{\"code\":\""+this.n+"\",\"lang\":\""+this.option+"\",\"input\":\""+this.Inputs+"\"}";
-    this.Inputs=this.Inputs.replace("\\n", " ")
+    this.Inputs=this.Inputs.replace(/\\n/, " ")
     this.json = JSON.parse(this.opos);
     this._freeApiService.post(this.json)/*calling the service nut it will not be called untill we call subscribe method*/
     .subscribe(
