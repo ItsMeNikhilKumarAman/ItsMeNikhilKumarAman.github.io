@@ -23,8 +23,8 @@ n="a=input();b=input();print('nikhil'+a+b);";
   Inputs="1\n5";
   run(){
     //this.Inputs=this.Inputs.replace(" ", "\\n"); this code only replace on instance as we want to replace all posible instance we will use RE
-    this.Inputs=this.Inputs.replace(/ /, "\\n");
     this.Inputs=this.Inputs.replace(/\n/, "\\n");
+    this.Inputs=this.Inputs.replace(/ /, "\\n");
     this.opos="{\"code\":\""+this.n+"\",\"lang\":\""+this.option+"\",\"input\":\""+this.Inputs+"\"}";
     this.Inputs=this.Inputs.replace(/\\n/, " ")
     this.json = JSON.parse(this.opos);
